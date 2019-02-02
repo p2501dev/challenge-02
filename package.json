@@ -1,6 +1,26 @@
 {
-  "name": "challenge",
+  "name": "challenge-02",
   "version": "0.0.0",
+  "description": "Frontend challenge - table view with edit detail",
+  "keywords": [
+    "Angular",
+    "Typescript",
+    "Challenge"
+  ],
+  "license": "UNLICENSED",
+  "private": true,
+  "author": {
+    "name": "Hannes Wolf",
+    "email": "p2501hw@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p2501dev/challenge-02.git"
+  },
+  "homepage": "https://p2501dev.github.io/challenge-02/",
+  "bugs": {
+    "url": "https://github.com/p2501dev/challenge-02/issues/new"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -12,7 +32,6 @@
     "lint:stylelint": "stylelint --config=.stylelintrc --fix './**/*.scss'",
     "lint": "npm-run-all --sequential lint:*"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^7.2.3",
     "@angular/common": "^7.2.3",

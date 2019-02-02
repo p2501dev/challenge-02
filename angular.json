@@ -24,11 +24,10 @@
             "tsConfig": "apps/challenge/tsconfig.app.json",
             "assets": [
               "apps/challenge/src/favicon.ico",
+              "apps/challenge/src/data/data.json",
               "apps/challenge/src/assets"
             ],
-            "styles": [
-              "apps/challenge/src/styles.scss"
-            ],
+            "styles": ["apps/challenge/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -75,26 +74,16 @@
             "polyfills": "apps/challenge/src/polyfills.ts",
             "tsConfig": "apps/challenge/tsconfig.spec.json",
             "karmaConfig": "apps/challenge/karma.conf.js",
-            "styles": [
-              "apps/challenge/src/styles.scss"
-            ],
+            "styles": ["apps/challenge/src/styles.scss"],
             "scripts": [],
-            "assets": [
-              "apps/challenge/src/favicon.ico",
-              "apps/challenge/src/assets"
-            ]
+            "assets": ["apps/challenge/src/favicon.ico", "apps/challenge/src/assets"]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/challenge/tsconfig.app.json",
-              "apps/challenge/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["apps/challenge/tsconfig.app.json", "apps/challenge/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -119,9 +108,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/challenge-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
