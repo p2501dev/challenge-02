@@ -1,0 +1,22 @@
+@import './../../../scss/variables/colors';
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-gap: 4px;
+}
+
+.left {
+  margin-left: 10vw;
+}
+
+.right {
+  margin-right: 10vw;
+}
+
+.left,
+.right {
+  background: $plista-gray-light;
+  height: 50vh;
+  border-radius: 4px;
+}

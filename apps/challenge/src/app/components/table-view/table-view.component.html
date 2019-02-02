@@ -1,3 +1,8 @@
-<p>
-  table-view works!
-</p>
+<div class="wrapper">
+  <div class="left">
+    <ng-content select="[grid]"></ng-content>
+  </div>
+  <div class="right">
+    <ng-content select="[details]"></ng-content>
+  </div>
+</div>

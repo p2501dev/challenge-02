@@ -27,7 +27,7 @@
               "apps/challenge/src/data/data.json",
               "apps/challenge/src/assets"
             ],
-            "styles": ["apps/challenge/src/styles.scss"],
+            "styles": ["apps/challenge/src/scss/main.scss"],
             "scripts": []
           },
           "configurations": {
@@ -74,7 +74,7 @@
             "polyfills": "apps/challenge/src/polyfills.ts",
             "tsConfig": "apps/challenge/tsconfig.spec.json",
             "karmaConfig": "apps/challenge/karma.conf.js",
-            "styles": ["apps/challenge/src/styles.scss"],
+            "styles": ["apps/challenge/src/scss/main.scss"],
             "scripts": [],
             "assets": ["apps/challenge/src/favicon.ico", "apps/challenge/src/assets"]
           }

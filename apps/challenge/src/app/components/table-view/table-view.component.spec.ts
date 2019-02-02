@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableViewComponent } from './table-view.component';
+import { GridComponent } from '../grid/grid.component';
+import { DetailsComponent } from '../details/details.component';
 
 describe('TableViewComponent', () => {
   let component: TableViewComponent;
@@ -8,7 +10,7 @@ describe('TableViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TableViewComponent],
+      declarations: [TableViewComponent, GridComponent, DetailsComponent],
     }).compileComponents();
   }));
 

@@ -1,0 +1,13 @@
+$plista-green: #37aa32 !default;
+$plista-green-light: lighten($plista-green, 10%) !default;
+$plista-green-dark: darken($plista-green, 10%) !default;
+
+$plista-gray: rgb(156, 156, 156) !default;
+$plista-gray-light: lighten($plista-gray, 10%) !default;
+$plista-gray-dark: darken($plista-gray, 10%) !default;
+
+$plista-font-color: #484847 !default;
+
+$gradient: linear-gradient(-180deg, rgba(74, 72, 70, 1) 0%, rgba(74, 72, 70, 0.66) 99%) !default;
+
+$easy-white: rgb(242, 243, 244) !default;
