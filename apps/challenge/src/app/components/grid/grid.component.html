@@ -1,3 +1,67 @@
-<p>
-  grid works!
-</p>
+<mat-table mat-table class="grid mat-elevation-z8" [dataSource]="data$">
+  <ng-container matColumnDef="a">
+    <mat-header-cell *matHeaderCellDef class="no-select">A</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.a }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="campaignid">
+    <mat-header-cell *matHeaderCellDef class="no-select">Campaign id</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.campaignid }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="userid">
+    <mat-header-cell *matHeaderCellDef class="no-select">User id</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.userid }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="camp_cpc">
+    <mat-header-cell *matHeaderCellDef class="no-select">Campaign cpc</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.camp_cpc | currency: 'EUR':'':'1.3-3' }} €</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef class="no-select">Date</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.date | date: 'dd.MM.yyyy - HH:mm' }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="frienddomainid">
+    <mat-header-cell *matHeaderCellDef class="no-select">Friend domain id</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.frienddomainid }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="freeclick">
+    <mat-header-cell *matHeaderCellDef class="no-select">Freeclick</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.freeclick }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="network">
+    <mat-header-cell *matHeaderCellDef class="no-select">Network</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.network }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="PlistaProduct">
+    <mat-header-cell *matHeaderCellDef class="no-select">Plista product</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.PlistaProduct }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="select">
+    <mat-header-cell *matHeaderCellDef class="no-select">Select</mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <button mat-icon-button color="primary" (click)="showMe(row)">
+        <mat-icon svgIcon="edit"></mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<mat-paginator
+  class="mat-elevation-z8"
+  [length]="rowCount"
+  pageSize="10"
+  [pageSizeOptions]="[5, 10, 25]"
+  showFirstLastButtons
+></mat-paginator>
