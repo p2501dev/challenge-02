@@ -5,6 +5,5 @@ export function isValidNumber(control: AbstractControl): ValidationErrors | null
   const checkEndsWithPoint = /\.{1}$/.test(control.value);
   const result =
     checkPatternFloat && !checkEndsWithPoint ? null : <ValidationErrors>{ invalidNumber: true };
-  console.log('test', control.value, checkPatternFloat, checkEndsWithPoint, result);
   return result;
 }
