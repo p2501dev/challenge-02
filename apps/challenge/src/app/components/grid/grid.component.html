@@ -1,4 +1,4 @@
-<mat-table mat-table class="grid mat-elevation-z8" [dataSource]="data$">
+<mat-table mat-table class="mat-elevation-z8" [dataSource]="data$">
   <ng-container matColumnDef="a">
     <mat-header-cell *matHeaderCellDef class="no-select">A</mat-header-cell>
     <mat-cell *matCellDef="let row">{{ row.a }}</mat-cell>
@@ -45,7 +45,7 @@
   </ng-container>
 
   <ng-container matColumnDef="select">
-    <mat-header-cell *matHeaderCellDef class="no-select">Select</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef class="no-select">Edit</mat-header-cell>
     <mat-cell *matCellDef="let row">
       <button mat-icon-button color="primary" (click)="rowSelected(row)">
         <mat-icon svgIcon="edit"></mat-icon>
@@ -62,6 +62,6 @@
   class="mat-elevation-z8"
   [length]="rowCount"
   pageSize="10"
-  [pageSizeOptions]="[5, 10, 25]"
+  [pageSizeOptions]="[3, 5, 10, 25]"
   showFirstLastButtons
 ></mat-paginator>

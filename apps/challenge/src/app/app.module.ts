@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule, HAMMER_LOADER } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import {
   MatTableModule,
   MatProgressSpinnerModule,
@@ -18,12 +19,11 @@ import {
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { TableViewComponent } from './components/table-view/table-view.component';
 import { GridComponent } from './components/grid/grid.component';
 import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
-  declarations: [AppComponent, TableViewComponent, GridComponent, DetailsComponent],
+  declarations: [AppComponent, GridComponent, DetailsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -41,13 +41,16 @@ import { DetailsComponent } from './components/details/details.component';
     MatCheckboxModule,
     MatRadioModule,
     MatSelectModule,
+    MatDialogModule,
   ],
   providers: [
     {
       provide: HAMMER_LOADER,
       useValue: () => new Promise(() => {}),
     },
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
   ],
   bootstrap: [AppComponent],
+  entryComponents: [DetailsComponent],
 })
 export class AppModule {}

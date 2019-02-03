@@ -13,17 +13,17 @@ import {
   MatCheckboxModule,
   MatRadioModule,
   MatSelectModule,
+  MatDialogModule,
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { TableViewComponent } from './components/table-view/table-view.component';
 import { GridComponent } from './components/grid/grid.component';
 import { DetailsComponent } from './components/details/details.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent, TableViewComponent, GridComponent, DetailsComponent],
+      declarations: [AppComponent, GridComponent, DetailsComponent],
       imports: [
         ReactiveFormsModule,
         FormsModule,
@@ -38,6 +38,7 @@ describe('AppComponent', () => {
         MatCheckboxModule,
         MatRadioModule,
         MatSelectModule,
+        MatDialogModule,
       ],
       providers: [
         {

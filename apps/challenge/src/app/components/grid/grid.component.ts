@@ -2,13 +2,14 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 
 import { Observable, of } from 'rxjs';
 import { startWith, switchMap, map, catchError } from 'rxjs/operators';
 
 import { DataService } from '../../services/data.service';
 import { DataModel } from './../../../models/data.model';
-import { SharedService } from '../../services/shared.service';
+import { DetailsComponent } from '../details/details.component';
 
 @Component({
   selector: 'chll2-grid',
@@ -24,7 +25,7 @@ export class GridComponent implements OnInit {
 
   constructor(
     private dataservice: DataService,
-    private sharedService: SharedService,
+    public dialog: MatDialog,
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer
   ) {
@@ -37,9 +38,7 @@ export class GridComponent implements OnInit {
   ngOnInit() {
     this.data$ = this.paginator.page.pipe(
       startWith([]),
-      switchMap(() =>
-        this.dataservice.getData(this.paginator.pageIndex + 1, this.paginator.pageSize)
-      ),
+      switchMap(() => this.dataservice.getData(this.paginator.pageIndex, this.paginator.pageSize)),
       map(response => {
         const data = response.data;
         this.rowCount = response.count;
@@ -56,7 +55,7 @@ export class GridComponent implements OnInit {
     );
   }
 
-  rowSelected(row: DataModel) {
-    this.sharedService.setDetail(row);
+  rowSelected(row: DataModel): void {
+    this.dialog.open(DetailsComponent, { data: row });
   }
 }

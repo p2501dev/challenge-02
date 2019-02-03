@@ -8,6 +8,7 @@ import {
   MatPaginatorModule,
   MatSortModule,
   MatIconModule,
+  MatDialogModule,
 } from '@angular/material';
 
 import { GridComponent } from './grid.component';
@@ -20,13 +21,14 @@ describe('GridComponent', () => {
     TestBed.configureTestingModule({
       declarations: [GridComponent],
       imports: [
+        BrowserAnimationsModule,
+        HttpClientModule,
         MatTableModule,
         MatProgressSpinnerModule,
         MatPaginatorModule,
         MatSortModule,
         MatIconModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
+        MatDialogModule,
       ],
       providers: [
         {

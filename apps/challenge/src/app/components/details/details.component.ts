@@ -1,10 +1,10 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Subscription } from 'rxjs';
 import * as moment from 'moment';
 
-import { SharedService } from '../../services/shared.service';
 import { isValidNumber } from '../../validators/validators';
 import { DataModel } from './../../../models/data.model';
 
@@ -13,7 +13,7 @@ import { DataModel } from './../../../models/data.model';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
 })
-export class DetailsComponent implements OnDestroy {
+export class DetailsComponent implements OnInit, OnDestroy {
   form: FormGroup;
   readonly subscriptions: Subscription = new Subscription();
   readonly plistaProductOptions = Array(10)
@@ -22,28 +22,30 @@ export class DetailsComponent implements OnDestroy {
 
   selectedRow: DataModel;
 
-  constructor(sharedService: SharedService, private formBuilder: FormBuilder) {
-    const sub = sharedService.getDetail().subscribe(detail => {
-      this.selectedRow = detail;
+  constructor(
+    private formBuilder: FormBuilder,
+    public dialogRef: MatDialogRef<DetailsComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DataModel
+  ) {
+    this.selectedRow = data;
+  }
 
-      const date = moment(detail.date).format('YYYY-MM-DD');
-      const time = moment(detail.date).format('HH:mm');
+  ngOnInit() {
+    const date = moment(this.data.date).format('YYYY-MM-DD');
+    const time = moment(this.data.date).format('HH:mm');
 
-      this.form = this.formBuilder.group({
-        a: [detail.a, Validators.required],
-        campaignid: [detail.campaignid, Validators.required],
-        userid: [detail.userid, Validators.required],
-        camp_cpc: [detail.camp_cpc, isValidNumber],
-        date: [date, Validators.required],
-        time: [time, Validators.required],
-        frienddomainid: [detail.frienddomainid, Validators.required],
-        freeclick: detail.freeclick,
-        network: detail.network,
-        PlistaProduct: detail.PlistaProduct,
-      });
+    this.form = this.formBuilder.group({
+      a: [this.data.a, Validators.required],
+      campaignid: [this.data.campaignid, Validators.required],
+      userid: [this.data.userid, Validators.required],
+      camp_cpc: [this.data.camp_cpc, isValidNumber],
+      date: [date, Validators.required],
+      time: [time, Validators.required],
+      frienddomainid: [this.data.frienddomainid, Validators.required],
+      freeclick: this.data.freeclick,
+      network: this.data.network,
+      PlistaProduct: this.data.PlistaProduct,
     });
-
-    this.subscriptions.add(sub);
   }
 
   ngOnDestroy() {
@@ -63,5 +65,11 @@ export class DetailsComponent implements OnDestroy {
     this.selectedRow.freeclick = this.form.get('freeclick').value;
     this.selectedRow.network = this.form.get('network').value;
     this.selectedRow.PlistaProduct = this.form.get('PlistaProduct').value;
+
+    this.dialogRef.close();
+  }
+
+  onCancel() {
+    this.dialogRef.close();
   }
 }
