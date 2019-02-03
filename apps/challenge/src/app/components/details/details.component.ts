@@ -53,6 +53,10 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
+    if (this.form.invalid) {
+      return;
+    }
+
     const dateString = this.form.get('date').value + ' ' + this.form.get('time').value;
     const date = moment(dateString, 'YYYY-MM-DD HH:mm').toDate();
 

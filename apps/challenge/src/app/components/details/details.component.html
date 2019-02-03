@@ -27,7 +27,7 @@
 
     <!-- camp_cpc -->
     <mat-form-field class="field">
-      <input type="number" matInput formControlName="camp_cpc" placeholder="Campaign cpc" />
+      <input type="number" matInput formControlName="camp_cpc" placeholder="Campaign cpc (€)" />
       <mat-error *ngIf="form.get('camp_cpc').hasError('invalidNumber')">
         <strong>Please input a valid number!</strong>
       </mat-error>
