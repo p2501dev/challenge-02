@@ -1,3 +1,83 @@
-<div *ngIf="(detail$ | async) as detail">
-  {{ detail.a }}
+<div *ngIf="form" class="form-wrapper mat-elevation-z8">
+  <h1 class="mat-title">Detail</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- a -->
+    <mat-form-field class="field">
+      <input type="text" matInput formControlName="a" placeholder="a" />
+      <mat-error *ngIf="form.get('a').hasError('required')">
+        <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- campaignid -->
+    <mat-form-field class="field">
+      <input type="text" matInput formControlName="campaignid" placeholder="Campaign id" />
+      <mat-error *ngIf="form.get('campaignid').hasError('required')">
+        <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- userid -->
+    <mat-form-field class="field">
+      <input type="text" matInput formControlName="userid" placeholder="User id" />
+      <mat-error *ngIf="form.get('userid').hasError('required')">
+        <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- camp_cpc -->
+    <mat-form-field class="field">
+      <input type="number" matInput formControlName="camp_cpc" placeholder="Campaign cpc" />
+      <mat-error *ngIf="form.get('camp_cpc').hasError('invalidNumber')">
+        <strong>Please input a valid number!</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- date -->
+    <div style="display:flex;">
+      <mat-form-field class="field">
+        <input type="date" matInput formControlName="date" placeholder="Date" />
+        <mat-error *ngIf="form.get('date').hasError('required')">
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="field">
+        <input type="time" matInput formControlName="time" placeholder="Time" />
+        <mat-error *ngIf="form.get('time').hasError('required')">
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- frienddomainid -->
+    <mat-form-field class="field">
+      <input type="text" matInput formControlName="frienddomainid" placeholder="Friend domain id" />
+      <mat-error *ngIf="form.get('frienddomainid').hasError('required')">
+        <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- PlistaProduct -->
+    <mat-form-field class="field">
+      <mat-select placeholder="Plista Product" formControlName="PlistaProduct">
+        <mat-option *ngFor="let ppo of plistaProductOptions" [value]="ppo">
+          {{ ppo }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- freeclick -->
+    <mat-checkbox formControlName="freeclick">Freeclick</mat-checkbox>
+
+    <!-- network -->
+    <span class="label">Network</span>
+
+    <mat-radio-group formControlName="network">
+      <mat-radio-button class="r-btn" value="a">a</mat-radio-button>
+      <mat-radio-button class="r-btn" value="b">b</mat-radio-button>
+      <mat-radio-button class="r-btn" value="c">c</mat-radio-button>
+    </mat-radio-group>
+
+    <button mat-stroked-button class="submit-btn" color="primary" type="submit">Submit</button>
+  </form>
 </div>

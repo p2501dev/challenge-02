@@ -1,0 +1,36 @@
+.form-wrapper {
+  background: #fff;
+  padding: 20px;
+}
+
+form {
+  display: grid;
+}
+
+.r-btn {
+  padding-right: 8px;
+}
+
+.label {
+  margin-top: 12px;
+  color: rgba(0, 0, 0, 0.54);
+  display: block;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  left: 0;
+  line-height: 18px;
+  font-weight: 400;
+  font-size: 12px;
+  overflow: hidden;
+  pointer-events: none;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.field {
+  margin-top: 4px;
+}
+
+.submit-btn {
+  margin-top: 20px;
+}

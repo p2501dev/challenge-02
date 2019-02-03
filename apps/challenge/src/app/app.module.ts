@@ -1,14 +1,20 @@
-import { BrowserModule, HAMMER_LOADER } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule, HAMMER_LOADER } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import {
   MatTableModule,
   MatProgressSpinnerModule,
   MatPaginatorModule,
   MatSortModule,
   MatIconModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatButtonModule,
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -20,14 +26,21 @@ import { DetailsComponent } from './components/details/details.component';
   declarations: [AppComponent, TableViewComponent, GridComponent, DetailsComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatTableModule,
     MatProgressSpinnerModule,
-    BrowserAnimationsModule,
     MatPaginatorModule,
     MatSortModule,
     MatButtonModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatSelectModule,
   ],
   providers: [
     {

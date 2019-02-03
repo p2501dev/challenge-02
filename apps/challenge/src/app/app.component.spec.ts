@@ -1,12 +1,18 @@
 import { TestBed, async } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { HAMMER_LOADER } from '@angular/platform-browser';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {
   MatTableModule,
   MatProgressSpinnerModule,
   MatPaginatorModule,
   MatSortModule,
   MatIconModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatSelectModule,
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -19,12 +25,19 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AppComponent, TableViewComponent, GridComponent, DetailsComponent],
       imports: [
+        ReactiveFormsModule,
+        FormsModule,
         MatTableModule,
         MatProgressSpinnerModule,
         MatPaginatorModule,
         MatSortModule,
         MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
         HttpClientModule,
+        MatCheckboxModule,
+        MatRadioModule,
+        MatSelectModule,
       ],
       providers: [
         {

@@ -47,7 +47,7 @@
   <ng-container matColumnDef="select">
     <mat-header-cell *matHeaderCellDef class="no-select">Select</mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <button mat-icon-button color="primary" (click)="showMe(row)">
+      <button mat-icon-button color="primary" (click)="rowSelected(row)">
         <mat-icon svgIcon="edit"></mat-icon>
       </button>
     </mat-cell>

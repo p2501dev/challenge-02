@@ -8,6 +8,7 @@ import { startWith, switchMap, map, catchError } from 'rxjs/operators';
 
 import { DataService } from '../../services/data.service';
 import { DataModel } from './../../../models/data.model';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'chll2-grid',
@@ -23,6 +24,7 @@ export class GridComponent implements OnInit {
 
   constructor(
     private dataservice: DataService,
+    private sharedService: SharedService,
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer
   ) {
@@ -54,7 +56,7 @@ export class GridComponent implements OnInit {
     );
   }
 
-  showMe(data) {
-    alert(JSON.stringify(data, undefined, 2));
+  rowSelected(row: DataModel) {
+    this.sharedService.setDetail(row);
   }
 }
