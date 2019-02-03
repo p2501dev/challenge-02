@@ -1,7 +1,10 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 export function isValidNumber(control: AbstractControl): ValidationErrors | null {
-  const checkRegex = /^\d*\.*\d*$/.test(control.value);
-  const result = checkRegex ? null : <ValidationErrors>{ invalidNumber: true };
+  const checkPatternFloat = /^-?\d+\.*\d*$/.test(control.value);
+  const checkEndsWithPoint = /\.{1}$/.test(control.value);
+  const result =
+    checkPatternFloat && !checkEndsWithPoint ? null : <ValidationErrors>{ invalidNumber: true };
+  console.log('test', control.value, checkPatternFloat, checkEndsWithPoint, result);
   return result;
 }
